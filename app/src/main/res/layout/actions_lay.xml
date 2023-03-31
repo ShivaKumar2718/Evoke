@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:text="Actions"
+        android:layout_marginTop="15dp"
+        style="@style/tv_large"
+        android:drawablePadding="10dp"
+        android:layout_marginStart="15dp"
+        android:background="?attr/selectableItemBackground" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/et_speak"
+        android:drawableStart="@drawable/speak_text"
+        android:hint="Speak Aloud"
+        app:fontFamily="@font/roboto_light"
+        style="@style/event_type_style" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/saver_lay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/event_type_style"
+        android:gravity="center_vertical"
+        android:padding="1dp"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:drawableStart="@drawable/battery_saver"
+            android:text="Turn Battery Saver On/Off"
+            app:fontFamily="@font/roboto_light"
+            android:layout_marginStart="10dp"
+            android:drawablePadding="10dp"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/toggle"
+            android:layout_width="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"/>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_play"
+        android:layout_width="40dp"
+        android:layout_gravity="end"
+        android:layout_height="40dp"
+        android:visibility="gone"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="15dp"
+        app:srcCompat="@drawable/play_icon"/>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

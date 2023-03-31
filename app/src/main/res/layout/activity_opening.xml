@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.OpeningActivity">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/label_lay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/label_bg"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingEnd="3dp"
+            android:paddingStart="0dp"
+            app:srcCompat="@drawable/timer_icon" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:text="@string/evoke"
+            app:fontFamily="@font/roboto_medium"
+            style="@style/tv_large_style" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_tagline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="get things to remind..."
+        android:layout_below="@+id/label_lay"
+        android:layout_marginTop="10dp"
+        android:textSize="16sp"
+        android:layout_centerInParent="true"
+        android:textColor="?attr/colorOnSecondary"/>
+
+
+</RelativeLayout>

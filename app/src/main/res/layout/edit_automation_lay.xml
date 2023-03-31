@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bottom_sheet_bg"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:elevation="4dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_cancel"
+            android:text="Cancel"
+            android:gravity="center_vertical"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="15dp"
+            style="@style/tv_medium_style" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_title"
+            android:text="Edit Automation"
+            style="@style/tv_large"
+            android:layout_centerHorizontal="true"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_done"
+            android:text="Done"
+            style="@style/tv_medium_style"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="15dp"/>
+
+    </RelativeLayout>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/initial_lay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/enable_lay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/event_type_style"
+            android:gravity="center_vertical"
+            android:layout_marginTop="20dp"
+            android:padding="1dp"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:text="Enable This Automation"
+                app:fontFamily="@font/roboto_medium"
+                android:layout_marginStart="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/toggle"
+                android:layout_width="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:text="When"
+            android:layout_marginTop="20dp"
+            style="@style/tv_large"
+            android:layout_marginStart="15dp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_when"
+            android:drawableStart="@drawable/timer_icon"
+            android:text="When battery level reaches 100%"
+            android:drawableEnd="@drawable/arrow_forward_icon"
+            style="@style/event_type_style"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:text="Do"
+            android:layout_marginTop="20dp"
+            style="@style/tv_large"
+            android:layout_marginStart="15dp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_do"
+            android:drawableStart="@drawable/timer_icon"
+            android:text="Set Low Power Mode"
+            android:drawableEnd="@drawable/arrow_forward_icon"
+            style="@style/event_type_style"/>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

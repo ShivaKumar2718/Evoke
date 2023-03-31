@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Automations"
+            android:layout_marginTop="10dp"
+            style="@style/tv_large"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv"
+            android:layout_margin="15dp"
+            android:background="@drawable/textview_bg"
+            android:elevation="4dp"
+            android:padding="5dp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_no"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No automations as of now"
+            android:textColor="?android:textColor"
+            android:gravity="center"
+            android:alpha="0.5"
+            android:layout_centerInParent="true"/>
+
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/fab_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="get Evoke"
+            app:icon="@drawable/plus_icon"
+            android:textColor="@color/white"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="15dp"
+            android:layout_marginEnd="15dp"
+            app:backgroundTint="@color/orange"
+            app:iconTint="@color/white"/>
+
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/dim_view"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#70000000"/>
+
+    <include android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/edit_lay"
+        android:layout_marginTop="25dp"
+        android:visibility="gone"
+        layout="@layout/edit_automation_lay" />
+
+
+
+</FrameLayout>

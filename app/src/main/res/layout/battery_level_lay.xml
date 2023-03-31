@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:text="When"
+        android:layout_marginTop="15dp"
+        style="@style/tv_large"
+        android:drawablePadding="10dp"
+        android:layout_marginStart="15dp"
+        android:background="?attr/selectableItemBackground" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_event_type"
+        android:drawableStart="@drawable/battery_level"
+        android:text="Battery Level"
+        app:fontFamily="@font/roboto_light"
+        style="@style/event_type_style" />
+
+    <androidx.appcompat.widget.AppCompatSeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:progress="50"
+        android:max="100"
+        android:layout_marginTop="30dp"
+        android:padding="15dp"
+        android:elevation="3dp"
+        android:background="@drawable/textview_bg"/>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/lay_with_levels"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/textview_bg"
+        android:elevation="3dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_equals"
+            android:text="Equals 50%"
+            android:drawableEnd="@drawable/tick_icon"
+            style="@style/tv_small_style" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:textColor"
+            android:alpha="0.1"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_rises"
+            android:text="Rises Above 50%"
+            style="@style/tv_small_style" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:textColor"
+            android:alpha="0.1"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_falls"
+            style="@style/tv_small_style"
+            android:text="Falls Below 50%" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/lay_with_connects"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp"
+        android:visibility="gone"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:padding="7dp"
+        android:background="@drawable/textview_bg"
+        android:elevation="3dp"
+        android:weightSum="2">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:drawableTop="@drawable/charger"
+                android:text="Is Connected"
+                android:drawablePadding="10dp"
+                style="@style/tv_small_style"
+                android:gravity="center_horizontal"/>
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/radio_connect"
+                android:layout_width="30dp"
+                android:gravity="center"
+                android:layout_height="30dp"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:drawableTop="@drawable/charger_disconnect"
+                android:text="Is Disconnected"
+                android:drawablePadding="10dp"
+                style="@style/tv_small_style"
+                android:gravity="center_horizontal"/>
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/radio_disconnect"
+                android:layout_width="30dp"
+                android:layout_height="30dp"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>
