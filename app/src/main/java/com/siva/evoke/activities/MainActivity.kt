@@ -153,21 +153,27 @@ class MainActivity : AppCompatActivity() , EventsAdapter.OnEventsClick, View.OnC
                 if (intent.getStringExtra("action1") == null){
                     if (intent.getStringExtra("EVENT_TYPE") == "charger"){
                         connects = intent.getBooleanExtra("connects",false)
-                        val connects = if(connects)  {
-                            "connected"
-                        } else {
-                            "disconnected"
-                        }
-                        binding.editLay.tvWhen.text = "When charger is $connects"
+                        val isConnected =
+                            if(connects)  {
+                                binding.editLay.tvWhen.setCompoundDrawablesWithIntrinsicBounds(ResourcesCompat.getDrawable(resources,R.drawable.charger,null),null,ResourcesCompat.getDrawable(resources,R.drawable.arrow_forward_icon,theme),null)
+                                "connected"
+                            } else {
+                                binding.editLay.tvWhen.setCompoundDrawablesWithIntrinsicBounds(ResourcesCompat.getDrawable(resources,R.drawable.charger_disconnect,null),null,ResourcesCompat.getDrawable(resources,R.drawable.arrow_forward_icon,theme),null)
+                                "disconnected"
+                            }
+                        binding.editLay.tvWhen.text = "When charger is $isConnected"
                     }else{
                         binding.editLay.tvWhen.text = "When battery level ${intent.getStringExtra("level")?.lowercase()}"
+                        binding.editLay.tvWhen.setCompoundDrawablesWithIntrinsicBounds(ResourcesCompat.getDrawable(resources,R.drawable.battery_level,null),null,ResourcesCompat.getDrawable(resources,R.drawable.arrow_forward_icon,theme),null)
                     }
                 }else{
                     if (intent.getStringExtra("action1") == ""){
                         val saver_flag = if(intent.getBooleanExtra("action2",false)) "On" else "Off"
                         binding.editLay.tvDo.text = "Battery Saver $saver_flag"
+                        binding.editLay.tvDo.setCompoundDrawablesWithIntrinsicBounds(ResourcesCompat.getDrawable(resources,R.drawable.battery_saver,null),null,ResourcesCompat.getDrawable(resources,R.drawable.arrow_forward_icon,theme),null)
                     }else{
                         binding.editLay.tvDo.text = "Speak Aloud"
+                        binding.editLay.tvDo.setCompoundDrawablesWithIntrinsicBounds(ResourcesCompat.getDrawable(resources,R.drawable.speak_text,null),null,ResourcesCompat.getDrawable(resources,R.drawable.arrow_forward_icon,theme),null)
                         speak_text = intent.getStringExtra("action1")!!
                     }
                 }

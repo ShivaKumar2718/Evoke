@@ -40,18 +40,18 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.9.0'
     implementation 'androidx.core:core-ktx:1.9.0'
     implementation 'androidx.core:core-ktx:1.9.0'
-    def room_version = "2.5.0"
+    def room_version = "2.5.1"
 
     //Room
     implementation("androidx.room:room-runtime:$room_version")
     kapt("androidx.room:room-compiler:$room_version")
-    implementation("androidx.room:room-ktx:2.5.0")
+    implementation("androidx.room:room-ktx:2.5.1")
 
     //coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
 
-    def lifecycle_version = "2.5.1"
+    def lifecycle_version = "2.6.1"
     def arch_version = "2.1.0"
 
     // ViewModel
