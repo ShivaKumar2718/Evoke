@@ -25,31 +25,46 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/event_type_style"
-        android:gravity="center_vertical"
-        android:padding="1dp"
-        android:orientation="horizontal">
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:drawableStart="@drawable/battery_saver"
+                android:text="Turn Battery Saver On/Off"
+                app:fontFamily="@font/roboto_light"
+                android:drawablePadding="10dp"
+                android:gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/toggle"
+                android:layout_width="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:drawableStart="@drawable/battery_saver"
-            android:text="Turn Battery Saver On/Off"
-            app:fontFamily="@font/roboto_light"
-            android:layout_marginStart="10dp"
-            android:drawablePadding="10dp"
-            android:gravity="center_vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <Space
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-
-        <com.google.android.material.switchmaterial.SwitchMaterial
-            android:id="@+id/toggle"
-            android:layout_width="wrap_content"
-            android:layout_marginEnd="5dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"/>
+            android:layout_marginTop="5dp"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/roboto_light"
+            android:textColor="?android:textColor"
+            android:alpha="0.5"
+            android:text="You will be notified to turn the battery saver On/Off"/>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 

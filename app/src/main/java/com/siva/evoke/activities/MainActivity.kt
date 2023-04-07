@@ -1,20 +1,26 @@
 package com.siva.evoke.activities
 
+import android.Manifest
 import android.app.Activity
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.DialogFragment.STYLE_NORMAL
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.OnScrollListener
+import com.google.android.material.snackbar.Snackbar
 import com.siva.evoke.R
 import com.siva.evoke.adapter.EventsAdapter
 import com.siva.evoke.databinding.ActivityMainBinding
@@ -34,8 +40,8 @@ class MainActivity : AppCompatActivity() , EventsAdapter.OnEventsClick, View.OnC
     private lateinit var binding:ActivityMainBinding
     private lateinit var eventViewModel: EventViewModel
     private lateinit var speak_text : String
-    private var connects: Boolean = false
     private lateinit var event: Event
+    private val POST_NOTIFY_REQUEST_CODE = 100
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,6 +52,8 @@ class MainActivity : AppCompatActivity() , EventsAdapter.OnEventsClick, View.OnC
         val eventDao = EventDatabase.getDatabaseInstance(applicationContext).eventDao()
         val factory = EventViewModelFactory(eventDao)
         eventViewModel = ViewModelProvider(this,factory)[EventViewModel::class.java]
+
+        requestPermissionsForPostNoti()
 
         val serviceIntent = Intent(this@MainActivity, ChargerPluginService::class.java)
         startForegroundService(serviceIntent)
@@ -85,6 +93,40 @@ class MainActivity : AppCompatActivity() , EventsAdapter.OnEventsClick, View.OnC
                     tvNo.show()
                 }
             }
+        }
+    }
+
+
+    private fun requestPermissionsForPostNoti() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU){
+            if (ActivityCompat.checkSelfPermission(
+                    this,
+                    Manifest.permission.POST_NOTIFICATIONS
+                ) != PackageManager.PERMISSION_GRANTED
+            ) {
+                // No explanation needed; request the permission
+                ActivityCompat.requestPermissions(
+                    this,
+                    arrayOf(Manifest.permission.POST_NOTIFICATIONS),
+                    POST_NOTIFY_REQUEST_CODE)
+                // MY_PERMISSIONS_REQUEST_CAMERA is an
+                // app-defined int constant. The callback method gets the
+                // result of the request.
+            }
+        }
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == POST_NOTIFY_REQUEST_CODE && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+            //Permissions granted
+        }else{
+            val snackbar = Snackbar.make(this,binding.fabBtn,"Some of the features requires this permission. Please allow it from app settings.",Snackbar.LENGTH_INDEFINITE)
+            snackbar.show()
         }
     }
 
@@ -152,9 +194,8 @@ class MainActivity : AppCompatActivity() , EventsAdapter.OnEventsClick, View.OnC
             if (intent != null) {
                 if (intent.getStringExtra("action1") == null){
                     if (intent.getStringExtra("EVENT_TYPE") == "charger"){
-                        connects = intent.getBooleanExtra("connects",false)
                         val isConnected =
-                            if(connects)  {
+                            if(intent.getBooleanExtra("connects",false))  {
                                 binding.editLay.tvWhen.setCompoundDrawablesWithIntrinsicBounds(ResourcesCompat.getDrawable(resources,R.drawable.charger,null),null,ResourcesCompat.getDrawable(resources,R.drawable.arrow_forward_icon,theme),null)
                                 "connected"
                             } else {
@@ -221,7 +262,9 @@ class MainActivity : AppCompatActivity() , EventsAdapter.OnEventsClick, View.OnC
         if (v?.id == R.id.tv_done) {
             event.isActive = binding.editLay.toggle.isChecked
             event.level = selectLevelAccordingly(binding.editLay.tvWhen.text.toString())
-            event.connects = connects
+            event.connects =
+                binding.editLay.tvWhen.text.toString() == "When charger is connected"
+
             if (binding.editLay.tvDo.text.toString().contains("Speak")){
                 event.action1 = speak_text
                 event.action2 = false
