@@ -7,6 +7,7 @@ import android.app.NotificationManager
 import android.app.Service
 import android.content.Intent
 import android.content.IntentFilter
+import android.graphics.Color
 import android.os.Build
 import android.os.IBinder
 import android.widget.Toast
@@ -20,15 +21,19 @@ class ChargerPluginService : Service() {
     private val CHANNEL_ID = "PluginServiceChannel"
     private lateinit var chargerPluginReceiver: ChargerPlugInReceiver
 
-    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+    override fun onCreate() {
+        super.onCreate()
         createNotificationChannel()
         val notification: Notification =
             NotificationCompat.Builder(this, CHANNEL_ID)
-                .setContentTitle("")
-                .setContentText("")
+                .setSmallIcon(com.siva.evoke.R.drawable.notification_icon)
+                .setColor(Color.parseColor("#FF7000"))
                 .build()
-
         startForeground(NOTIFICATION_ID, notification)
+    }
+
+    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+
 
         chargerPluginReceiver = ChargerPlugInReceiver()
         val intentFilter = IntentFilter(Intent.ACTION_POWER_CONNECTED)

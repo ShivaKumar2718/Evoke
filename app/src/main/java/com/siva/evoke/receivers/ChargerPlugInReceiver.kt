@@ -7,6 +7,7 @@ import android.app.NotificationManager
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.os.BatteryManager
 import android.os.Build
 import android.os.PowerManager
@@ -140,8 +141,9 @@ class ChargerPlugInReceiver : BroadcastReceiver() {
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
             val builder: Notification.Builder =
                 Notification.Builder(context, CHANNEL_ID)
-                    .setSmallIcon(R.drawable.play_icon)
+                    .setSmallIcon(R.drawable.notification_icon)
                     .setContentTitle(title)
+                    .setColor(Color.parseColor("#FF7000"))
                     .setContentText(text)
                     .setAutoCancel(true)
                     .setBadgeIconType(BADGE_ICON_SMALL)
@@ -151,8 +153,9 @@ class ChargerPlugInReceiver : BroadcastReceiver() {
         }else{
             val builder: Notification.Builder =
                 Notification.Builder(context)
-                    .setSmallIcon(R.drawable.play_icon)
+                    .setSmallIcon(R.drawable.notification_icon)
                     .setContentTitle(title)
+                    .setColor(Color.parseColor("#FF7000"))
                     .setContentText(text)
             val notificationManager =
                 NotificationManagerCompat.from(context)
