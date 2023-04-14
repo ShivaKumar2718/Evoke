@@ -21,6 +21,17 @@
             android:layout_centerHorizontal="true"
             android:layout_alignParentTop="true"/>
 
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_privacy"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            app:srcCompat="@drawable/privacy_policy_icon"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:background="?selectableItemBackground"
+            android:layout_marginTop="13dp"
+            android:layout_marginEnd="20dp"/>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview"
             android:layout_width="match_parent"

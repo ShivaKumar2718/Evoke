@@ -55,6 +55,7 @@ class MainActivity : AppCompatActivity() , EventsAdapter.OnEventsClick, View.OnC
 
         requestPermissionsForPostNoti()
 
+
         val serviceIntent = Intent(this@MainActivity, ChargerPluginService::class.java)
         startForegroundService(serviceIntent)
 
@@ -70,6 +71,8 @@ class MainActivity : AppCompatActivity() , EventsAdapter.OnEventsClick, View.OnC
             editLay.tvWhen.setOnClickListener(this@MainActivity)
             editLay.tvDo.setOnClickListener(this@MainActivity)
             editLay.tvDone.setOnClickListener(this@MainActivity)
+
+            ivPrivacy.setOnClickListener(this@MainActivity)
 
             recyclerview.addOnScrollListener(object : OnScrollListener(){
                 override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
@@ -226,6 +229,10 @@ class MainActivity : AppCompatActivity() , EventsAdapter.OnEventsClick, View.OnC
         if (v?.id == R.id.tv_cancel){
             binding.dimView.hide()
             binding.editLay.root.slideDown(this)
+        }
+
+        if (v?.id == R.id.iv_privacy){
+            startActivity(Intent(this@MainActivity,WebViewActivity::class.java))
         }
         if (v?.id == R.id.tv_when){
             val intent = Intent(this@MainActivity,EventAndActionActivity::class.java)
