@@ -3,15 +3,15 @@ package com.siva.evoke.activities
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.siva.evoke.databinding.ActivityWebViewBinding
+import com.siva.evoke.databinding.ActivityPrivacyPolicyBinding
 import com.siva.evoke.utils.Constants
 
 
 class PrivacyPolicyActivity : AppCompatActivity() {
-    private lateinit var  binding : ActivityWebViewBinding
+    private lateinit var  binding : ActivityPrivacyPolicyBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityWebViewBinding.inflate(layoutInflater)
+        binding = ActivityPrivacyPolicyBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.apply {
