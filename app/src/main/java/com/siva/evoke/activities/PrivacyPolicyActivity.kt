@@ -1,11 +1,13 @@
 package com.siva.evoke.activities
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.siva.evoke.databinding.ActivityWebViewBinding
+import com.siva.evoke.utils.Constants
 
 
-class WebViewActivity : AppCompatActivity() {
+class PrivacyPolicyActivity : AppCompatActivity() {
     private lateinit var  binding : ActivityWebViewBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -13,13 +15,12 @@ class WebViewActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.apply {
-            val webSettings =
-                webView.settings
-            webSettings.javaScriptEnabled =
-                true
-            webView.loadUrl("https://evoke-e1a92.web.app")
-
-            tvBack.setOnClickListener{
+            btnAgree.setOnClickListener{
+                val sp = applicationContext.getSharedPreferences(Constants.SHARED_PREF_STORAGE, MODE_PRIVATE)
+                val editor = sp.edit()
+                editor.putBoolean(Constants.IS_AGREED,true)
+                editor.apply()
+                startActivity(Intent(this@PrivacyPolicyActivity, MainActivity::class.java))
                 finish()
             }
         }

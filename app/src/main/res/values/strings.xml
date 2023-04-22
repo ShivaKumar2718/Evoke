@@ -3,4 +3,17 @@
     <string name="evoke"><font color="#FF7000"><b>E</b></font>voke</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="privacy_policy">This privacy policy is meant to help you understand what information we collect, why we collect it, and how you can update, manage, export, and delete your information. Before you submit any information to this application, please read the privacy policy of this application so that you can understand how we will treat your information in a secure manner. If you do not agree to this privacy policy, please do not use this application. Your use of any part of this application indicates that you accept our privacy policy.</string>
+    <string name="policy_1">To use this application, users would be required to provide a few permissions to enable in-app notifications so that they would be notified when required.</string>
+    <string name="privacy_2">We do not knowingly collect or solicit any information from the people who were more than 5 years older.</string>
+    <string name="privacy_3">This application provides the user with the utmost security in such a way that his or her data will not be exposed to any kind of external medium (e.g., the internet). Whatever data this application collects will only be available on the user\'s device itself.</string>
+    <string name="privacy_4">Any questions/clarifications with respect to this policy or any complaints, comments, concerns or feedback can be sent to <font color="#0074FF"><u>siva.mal1918@gmail.com</u></font> or by normal/physical mail addressed to:\n\nMarripalli Village, \nPodalakur Mandal, \nNellore District, \nAndhra Pradesh. PIN: 524345.</string>
+    <string name="privacy_policy_btn">privacy_policy</string>
+    <string name="privacy_polic">PRIVACY POLICY</string>
+    <string name="purpose_and_usage">Purpose and Usage:</string>
+    <string name="children_s_privacy">Children\'s Privacy:</string>
+    <string name="security">Security:</string>
+    <string name="contact_us">Contact Us:</string>
+
 </resources>

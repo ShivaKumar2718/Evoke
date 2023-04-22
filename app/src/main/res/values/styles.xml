@@ -16,6 +16,25 @@
         <item name="android:background">@android:color/transparent</item>
     </style>
 
+    <style name="child_textview_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">15dp</item>
+        <item name="android:fontFamily">@font/roboto_light</item>
+        <item name="android:textColor">?android:textColor</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="privacy_heading_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">@font/roboto_medium</item>
+        <item name="android:layout_marginTop">15dp</item>
+        <item name="android:textColor">@color/orange</item>
+    </style>
+
     <style name="tv_large">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>

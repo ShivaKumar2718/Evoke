@@ -72,8 +72,6 @@ class MainActivity : AppCompatActivity() , EventsAdapter.OnEventsClick, View.OnC
             editLay.tvDo.setOnClickListener(this@MainActivity)
             editLay.tvDone.setOnClickListener(this@MainActivity)
 
-            ivPrivacy.setOnClickListener(this@MainActivity)
-
             recyclerview.addOnScrollListener(object : OnScrollListener(){
                 override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                     super.onScrolled(recyclerView, dx, dy)
@@ -231,9 +229,6 @@ class MainActivity : AppCompatActivity() , EventsAdapter.OnEventsClick, View.OnC
             binding.editLay.root.slideDown(this)
         }
 
-        if (v?.id == R.id.iv_privacy){
-            startActivity(Intent(this@MainActivity,WebViewActivity::class.java))
-        }
         if (v?.id == R.id.tv_when){
             val intent = Intent(this@MainActivity,EventAndActionActivity::class.java)
             intent.putExtra("update",true)

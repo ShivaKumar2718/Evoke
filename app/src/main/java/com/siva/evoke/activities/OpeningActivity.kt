@@ -7,6 +7,7 @@ import android.os.Handler
 import android.view.animation.AnimationUtils
 import com.siva.evoke.R
 import com.siva.evoke.databinding.ActivityOpeningBinding
+import com.siva.evoke.utils.Constants
 
 class OpeningActivity : AppCompatActivity() {
     lateinit var binding: ActivityOpeningBinding
@@ -27,8 +28,16 @@ class OpeningActivity : AppCompatActivity() {
 
         val handler = Handler()
         val runnable = Runnable {
+            var intent: Intent? = null
             handler.removeCallbacksAndMessages(null)
-            startActivity(Intent(this@OpeningActivity, MainActivity::class.java))
+            intent =
+                if (applicationContext.getSharedPreferences(Constants.SHARED_PREF_STORAGE, MODE_PRIVATE).getBoolean(Constants.IS_AGREED,false)) {
+                    Intent(this@OpeningActivity, MainActivity::class.java)
+                }else{
+                    Intent(this@OpeningActivity, PrivacyPolicyActivity::class.java)
+                }
+            startActivity(intent)
+            finish()
         }
         handler.postDelayed(runnable,1000)
     }
