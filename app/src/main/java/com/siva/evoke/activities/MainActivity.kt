@@ -71,6 +71,7 @@ class MainActivity : AppCompatActivity() , EventsAdapter.OnEventsClick, View.OnC
             editLay.tvWhen.setOnClickListener(this@MainActivity)
             editLay.tvDo.setOnClickListener(this@MainActivity)
             editLay.tvDone.setOnClickListener(this@MainActivity)
+            ivPrivacy.setOnClickListener(this@MainActivity)
 
             recyclerview.addOnScrollListener(object : OnScrollListener(){
                 override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
@@ -261,6 +262,9 @@ class MainActivity : AppCompatActivity() , EventsAdapter.OnEventsClick, View.OnC
             startForResult.launch(intent)
         }
 
+        if (v?.id == R.id.iv_privacy){
+            startActivity(Intent(this@MainActivity,PrivacyPolicyActivity::class.java))
+        }
         if (v?.id == R.id.tv_done) {
             event.isActive = binding.editLay.toggle.isChecked
             event.level = selectLevelAccordingly(binding.editLay.tvWhen.text.toString())
