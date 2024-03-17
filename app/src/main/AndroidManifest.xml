@@ -25,6 +25,11 @@
         android:theme="@style/Theme.Evoke"
         tools:targetApi="31">
         <activity
+            android:name=".activities.EventAndAction"
+            android:exported="false"
+            android:label="@string/title_activity_event_and_action"
+            android:theme="@style/Theme.Evoke" />
+        <activity
             android:name=".activities.PrivacyPolicyActivity"
             android:exported="false" />
         <activity

@@ -16,5 +16,6 @@
     <string name="security">Security:</string>
     <string name="contact_us">Contact Us:</string>
     <string name="agree">Agree</string>
+    <string name="title_activity_event_and_action">EventAndAction</string>
 
 </resources>
