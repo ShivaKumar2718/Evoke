@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="automations">Automations</string>
+    <string name="no_automations_as_of_now">No automations as of now</string>
+    <string name="get_evoke">get Evoke</string>
+</resources>
